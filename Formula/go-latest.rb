@@ -4,6 +4,7 @@ class GoLatest < Formula
   url "https://go.dev/dl/go1.17.6.src.tar.gz"
   sha256 "4dc1bbf3ff61f0c1ff2b19355e6d88151a70126268a47c761477686ef94748c8"
   license "BSD-3-Clause"
+  head "https://go.googlesource.com/go.git", branch: "master"
   conflicts_with "go", because: "it sucks, runs years of CI for a minor update"
 
   # Don't update this unless this version cannot bootstrap the new version.
