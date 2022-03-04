@@ -1,8 +1,8 @@
 class GoLatest < Formula
   desc "Latest Go, fuck the 100000000 deps"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.17.7.src.tar.gz"
-  sha256 "c108cd33b73b1911a02b697741df3dea43e01a5c4e08e409e8b3a0e3745d2b4d"
+  url "https://go.dev/dl/go1.17.8.src.tar.gz"
+  sha256 "2effcd898140da79a061f3784ca4f8d8b13d811fb2abe9dad2404442dabbdf7a"
   license "BSD-3-Clause"
   head "https://go.googlesource.com/go.git", branch: "master"
   conflicts_with "go", because: "it sucks, runs years of CI for a minor update"
