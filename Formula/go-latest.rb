@@ -11,25 +11,25 @@ class GoLatest < Formula
   resource "gobootstrap" do
     on_macos do
       if Hardware::CPU.arm?
-        url "https://go.dev/dl/go1.17.darwin-arm64.tar.gz"
-        version "1.17"
-        sha256 "da4e3e3c194bf9eed081de8842a157120ef44a7a8d7c820201adae7b0e28b20b"
+        url "https://go.dev/dl/go1.17.8.darwin-arm64.tar.gz"
+        version "1.17.8"
+        sha256 "2827fb5d62453b30f0644382e22ab9d287c7bca868c374a15145b29e272443b1"
       else
-        url "https://go.dev/dl/go1.17.darwin-amd64.tar.gz"
-        version "1.17"
-        sha256 "355bd544ce08d7d484d9d7de05a71b5c6f5bc10aa4b316688c2192aeb3dacfd1"
+        url "https://go.dev/dl/go1.17.8.darwin-amd64.tar.gz"
+        version "1.17.8"
+        sha256 "345f530a6a4295a1bf0a25931c08bf31582ed83252580196bd643049dfef0563"
       end
     end
 
     on_linux do
       if Hardware::CPU.arm?
-        url "https://go.dev/dl/go1.17.linux-arm64.tar.gz"
-        version "1.17"
-        sha256 "01a9af009ada22122d3fcb9816049c1d21842524b38ef5d5a0e2ee4b26d7c3e7"
+        url "https://go.dev/dl/go1.17.8.linux-arm64.tar.gz"
+        version "1.17.8"
+        sha256 "57a9171682e297df1a5bd287be056ed0280195ad079af90af16dcad4f64710cb"
       else
-        url "https://go.dev/dl/go1.17.linux-amd64.tar.gz"
-        version "1.17"
-        sha256 "6bf89fc4f5ad763871cf7eac80a2d594492de7a818303283f1366a7f6a30372d"
+        url "https://go.dev/dl/go1.17.8.linux-amd64.tar.gz"
+        version "1.17.8"
+        sha256 "980e65a863377e69fd9b67df9d8395fd8e93858e7a24c9f55803421e453f4f99"
       end
     end
   end
