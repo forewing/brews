@@ -1,8 +1,8 @@
 class GoLatest < Formula
   desc "Latest Go, fuck the 100000000 deps"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.18.5.src.tar.gz"
-  sha256 "9920d3306a1ac536cdd2c796d6cb3c54bc559c226fc3cc39c32f1e0bd7f50d2a"
+  url "https://go.dev/dl/go1.19.src.tar.gz"
+  sha256 "9419cc70dc5a2523f29a77053cafff658ed21ef3561d9b6b020280ebceab28b9"
   license "BSD-3-Clause"
   head "https://go.googlesource.com/go.git", branch: "master"
   conflicts_with "go", because: "it sucks, runs years of CI for a minor update"
@@ -11,25 +11,25 @@ class GoLatest < Formula
   resource "gobootstrap" do
     on_macos do
       if Hardware::CPU.arm?
-        url "https://go.dev/dl/go1.17.8.darwin-arm64.tar.gz"
-        version "1.17.8"
-        sha256 "2827fb5d62453b30f0644382e22ab9d287c7bca868c374a15145b29e272443b1"
+        url "https://go.dev/dl/go1.18.5.darwin-arm64.tar.gz"
+        version "1.18.5"
+        sha256 "923a377c6fc9a2c789f5db61c24b8f64133f7889056897449891f256af34065f"
       else
-        url "https://go.dev/dl/go1.17.8.darwin-amd64.tar.gz"
-        version "1.17.8"
-        sha256 "345f530a6a4295a1bf0a25931c08bf31582ed83252580196bd643049dfef0563"
+        url "https://go.dev/dl/go1.18.5.darwin-amd64.tar.gz"
+        version "1.18.5"
+        sha256 "828eeca8b5abea3e56921df8fa4b1101380a5ebcfee10acbc8ffe7ec0bf5876b"
       end
     end
 
     on_linux do
       if Hardware::CPU.arm?
-        url "https://go.dev/dl/go1.17.8.linux-arm64.tar.gz"
-        version "1.17.8"
-        sha256 "57a9171682e297df1a5bd287be056ed0280195ad079af90af16dcad4f64710cb"
+        url "https://go.dev/dl/go1.18.5.linux-arm64.tar.gz"
+        version "1.18.5"
+        sha256 "006f6622718212363fa1ff004a6ab4d87bbbe772ec5631bab7cac10be346e4f1"
       else
-        url "https://go.dev/dl/go1.17.8.linux-amd64.tar.gz"
-        version "1.17.8"
-        sha256 "980e65a863377e69fd9b67df9d8395fd8e93858e7a24c9f55803421e453f4f99"
+        url "https://go.dev/dl/go1.18.5.linux-amd64.tar.gz"
+        version "1.18.5"
+        sha256 "9e5de37f9c49942c601b191ac5fba404b868bfc21d446d6960acc12283d6e5f2"
       end
     end
   end
