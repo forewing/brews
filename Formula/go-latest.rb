@@ -9,29 +9,29 @@ class GoLatest < Formula
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
-    on_macos do
-      if Hardware::CPU.arm?
-        url "https://go.dev/dl/go1.18.5.darwin-arm64.tar.gz"
-        version "1.18.5"
-        sha256 "923a377c6fc9a2c789f5db61c24b8f64133f7889056897449891f256af34065f"
-      else
-        url "https://go.dev/dl/go1.18.5.darwin-amd64.tar.gz"
-        version "1.18.5"
-        sha256 "828eeca8b5abea3e56921df8fa4b1101380a5ebcfee10acbc8ffe7ec0bf5876b"
-      end
+    checksums = {
+      "darwin-arm64" => "718b32cb2c1d203ba2c5e6d2fc3cf96a6952b38e389d94ff6cdb099eb959dade",
+      "darwin-amd64" => "5614904f2b0b546b1493f294122fea7d67b2fbfc2efe84b1ab560fb678502e1f",
+      "linux-arm64"  => "160497c583d4c7cbc1661230e68b758d01f741cf4bece67e48edc4fdd40ed92d",
+      "linux-amd64"  => "5e05400e4c79ef5394424c0eff5b9141cb782da25f64f79d54c98af0a37f8d49",
+    }
+
+    arch = "arm64"
+    platform = "darwin"
+
+    on_intel do
+      arch = "amd64"
     end
 
     on_linux do
-      if Hardware::CPU.arm?
-        url "https://go.dev/dl/go1.18.5.linux-arm64.tar.gz"
-        version "1.18.5"
-        sha256 "006f6622718212363fa1ff004a6ab4d87bbbe772ec5631bab7cac10be346e4f1"
-      else
-        url "https://go.dev/dl/go1.18.5.linux-amd64.tar.gz"
-        version "1.18.5"
-        sha256 "9e5de37f9c49942c601b191ac5fba404b868bfc21d446d6960acc12283d6e5f2"
-      end
+      platform = "linux"
     end
+
+    boot_version = "1.18.10"
+
+    url "https://storage.googleapis.com/golang/go#{boot_version}.#{platform}-#{arch}.tar.gz"
+    version boot_version
+    sha256 checksums["#{platform}-#{arch}"]
   end
 
   def install
@@ -40,10 +40,9 @@ class GoLatest < Formula
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      system "./make.bash", "--no-clean"
+      system "./make.bash"
     end
 
-    (buildpath/"pkg/obj").rmtree
     rm_rf "gobootstrap" # Bootstrap not required beyond compile.
     libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
